@@ -1,34 +1,75 @@
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
- 
-#include <stack>
-#include <deque>
 
-template<typename T, typename Container = std::deque<T> >
-class MutantStack
+#include <deque>
+#include <stack>
+#include <iostream>
+#include <vector>
+#include <list>
+
+template <typename T>
+class MutantStack : public std::stack<T>
 {
 	public:
-		typedef typename Container::iterator iterator;
-		typedef typename Container::const_iterator const_iterator;
-		typedef typename Container::reverse_iterator reverse_iterator;
-		typedef typename Container::const_reverse_iterator c_r_iterator;
-
+		typedef typename std::stack<T>::container_type::iterator			iterator;
+		typedef typename std::stack<T>::container_type::const_iterator	const_iterator;
+ 
 		MutantStack();
-		MutantStack(const MutantStack& other);
-		MutantStack& operator=(const MutantStack& other);
-		virtual ~MutantStack();
-
-		iterator begin();
-		iterator end();
-		const_iterator begin() const;
-		const_iterator end() const;
-
-		reverse_iterator rbegin();
-		reverse_iterator rend();
-		c_r_iterator rbegin() const;
-		c_r_iterator rend() const;
+		MutantStack(const MutantStack &other);
+		MutantStack &operator=(const MutantStack &other);
+		~MutantStack();
+ 
+		iterator		begin();
+		iterator		end();
+		const_iterator	begin() const;
+		const_iterator	end() const;
 };
 
-#include "MutantStack.tpp"
+template <typename T>
+MutantStack<T>::MutantStack() : std::stack<T>()
+{
+}
+
+template <typename T>
+MutantStack<T>::MutantStack(const MutantStack &other) : std::stack<T>(other)
+{
+}
+
+template <typename T>
+MutantStack<T> &MutantStack<T>::operator=(const MutantStack &other)
+{
+	if (this != &other)
+		std::stack<T>::operator=(other);
+	return (*this);
+}
+
+template <typename T>
+MutantStack<T>::~MutantStack()
+{
+}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::begin()
+{
+	return (this->c.begin());
+}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::end()
+{
+	return (this->c.end());
+}
+
+template <typename T>
+typename MutantStack<T>::const_iterator MutantStack<T>::begin() const
+{
+	return (this->c.begin());
+}
+
+template <typename T>
+typename MutantStack<T>::const_iterator MutantStack<T>::end() const
+{
+	return (this->c.end());
+}
 
 #endif
