@@ -7,6 +7,7 @@
 #include <stdexcept>
 #include <cstdlib>
 #include <iostream>
+#include <ctime>
 
 class Span
 {
@@ -27,11 +28,9 @@ class Span
 		template<typename Iterator>
 		void addRange(Iterator begin, Iterator end)
 		{
-			typename std::iterator_traits<Iterator>::difference_type dist;
+			unsigned int dist;
 			dist = std::distance(begin, end);
-			if (dist < 0)
-				throw std::runtime_error("Span: invalid iterator range");
-			if (numbers.size() + static_cast<size_t>(dist) > maxSz)
+			if ((numbers.size() + dist) > maxSz)
 				throw std::runtime_error("Span: range exceeds");
 			numbers.insert(numbers.end(), begin, end);
 		}

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <algorithm>
-#include <stdexcept> //C++98 uyumlu mu kontrol et
+#include <stdexcept>
 #include <vector>
 
 template <typename T>
