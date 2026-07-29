@@ -62,7 +62,7 @@ int main()
 	MutantStack<int>::const_iterator clit = constStack.begin();
 	MutantStack<int>::const_iterator clite = constStack.end();
  
-	while (it != ite)
+	while (clit != clite)
 	{
 		std::cout << *it << std::endl;
 		++it;

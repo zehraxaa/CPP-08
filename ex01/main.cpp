@@ -1,5 +1,4 @@
 #include "Span.hpp"
-#include <algorithm>
 
 int main()
 {
