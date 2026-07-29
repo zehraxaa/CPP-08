@@ -11,8 +11,8 @@ int main()
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);
-	std::cout<<sp.shortestSpan()<<std::endl;
-	std::cout<<sp.longestSpan()<<std::endl<<std::endl;;
+	std::cout<<"shortest: "<<sp.shortestSpan()<<std::endl;
+	std::cout<<"longest: "<<sp.longestSpan()<<std::endl<<std::endl;;
 
 	std::cout<<"Adding 10001 random numbers by addNumber(int n) function:"<<std::endl;
 	std::srand(std::time(NULL));
@@ -21,16 +21,16 @@ int main()
 	{
 		sp2.addNumber(std::rand());
 	}
-	std::cout<<sp2.shortestSpan()<<std::endl;
-	std::cout<<sp2.longestSpan()<<std::endl<<std::endl;
+	std::cout<<"shortest: "<<sp2.shortestSpan()<<std::endl;
+	std::cout<<"longest: "<<sp2.longestSpan()<<std::endl<<std::endl;
 
 	std::cout<<"Adding 10001 random numbers by addRange(begin, end) function:"<<std::endl;
 	Span sp3(10001);
 	std::vector<int> randomNums(10001);
 	std::generate(randomNums.begin(), randomNums.end(), std::rand);
 	sp3.addRange(randomNums.begin(), randomNums.end());
-	std::cout<<sp3.shortestSpan()<<std::endl;
-	std::cout<<sp3.longestSpan()<<std::endl<<std::endl;
+	std::cout<<"shortest: "<<sp3.shortestSpan()<<std::endl;
+	std::cout<<"longest: "<<sp3.longestSpan()<<std::endl<<std::endl;
 
 	std::cout<<"Adding numbers by addRange(begin, end) function:"<<std::endl;
 	Span sp4(5);
